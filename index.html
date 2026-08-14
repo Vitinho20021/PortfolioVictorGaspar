@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victor Gaspar — Comunicação Interna & Conteúdo</title>
+<meta name="description" content="Portfólio de Victor Gaspar, jornalista e profissional de comunicação interna, corporativa e conteúdo, baseado em São Paulo.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#000000;
+    --ink-2:#121212;
+    --paper:#e9ebe4;
+    --paper-dim:#b7bab2;
+    --muted:#8a8e94;
+    --signal:#e3a13d;
+    --wire:#8fb0c6;
+    --live:#e5615a;
+    --rule: rgba(233,235,228,0.14);
+    --rule-strong: rgba(233,235,228,0.26);
+    --display: 'Big Shoulders Display', Impact, sans-serif;
+    --body: 'IBM Plex Sans', -apple-system, Arial, sans-serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --maxw: 1140px;
+  }
+
+  *, *::before, *::after{ box-sizing:border-box; }
+
+  html, body{
+    background:#000000 !important;
+    color:var(--paper);
+  }
+
+  html{
+    scroll-behavior:smooth;
+    color-scheme:dark;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  body{
+    margin:0;
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+
+  a{ color:inherit; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:var(--signal); color:#000; }
+  :focus-visible{ outline:2px solid var(--signal); outline-offset:3px; }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  /* progressive-enhancement reveal: visible by default, only animates once JS confirms it's running */
+  .reveal{ opacity:1; transform:none; }
+  body.js .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+  }
+  body.js .reveal.in{ opacity:1; transform:translateY(0); }
+  .reveal-delay-1{ transition-delay:.08s; }
+  .reveal-delay-2{ transition-delay:.16s; }
+  .reveal-delay-3{ transition-delay:.24s; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(0,0,0,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{ font-family:var(--display); font-weight:800; font-size:22px; letter-spacing:0.02em; text-decoration:none; color:var(--paper); }
+  .logo span{ color:var(--signal); }
+  nav ul{ list-style:none; display:flex; gap:32px; margin:0; padding:0; }
+  nav ul li a{
+    text-decoration:none; font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--paper-dim); position:relative; padding-bottom:4px;
+    transition:color .25s ease;
+  }
+  nav ul li a::after{
+    content:''; position:absolute; left:0; right:100%; bottom:0; height:1px;
+    background:var(--signal); transition:right .28s cubic-bezier(.4,0,.2,1);
+  }
+  nav ul li a:hover{ color:var(--paper); }
+  nav ul li a:hover::after{ right:0; }
+
+  .menu-btn{
+    display:none; background:none; border:1px solid var(--rule-strong); color:var(--paper);
+    width:40px; height:40px; border-radius:2px; cursor:pointer;
+    flex-direction:column; align-items:center; justify-content:center; gap:5px;
+  }
+  .menu-btn span{ width:18px; height:1.5px; background:var(--paper); display:block; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+    padding-top:96px; position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(60% 50% at 85% 10%, rgba(143,176,198,0.10), transparent 60%),
+      radial-gradient(50% 45% at 5% 90%, rgba(227,161,61,0.08), transparent 60%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--wire); display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .live-dot{
+    width:7px; height:7px; border-radius:50%; background:var(--live);
+    box-shadow:0 0 0 0 rgba(229,97,90,0.6); animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(229,97,90,0.55); }
+    70%{ box-shadow:0 0 0 8px rgba(229,97,90,0); }
+    100%{ box-shadow:0 0 0 0 rgba(229,97,90,0); }
+  }
+  h1.name{
+    font-family:var(--display); font-weight:900; font-size:clamp(52px, 12vw, 148px);
+    line-height:0.86; letter-spacing:-0.01em; margin:0; text-transform:uppercase; color:var(--paper);
+  }
+  .hero-role{
+    font-family:var(--body); font-weight:500; font-size:clamp(16px, 2.4vw, 22px);
+    color:var(--paper-dim); max-width:620px; margin:22px 0 0;
+  }
+  .hero-role strong{ color:var(--paper); font-weight:600; }
+  .hero-meta{ display:flex; gap:36px; margin-top:44px; flex-wrap:wrap; }
+  .hero-meta div{ font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:0.04em; }
+  .hero-meta div b{ display:block; color:var(--paper); font-family:var(--body); font-weight:600; font-size:14px; margin-top:3px; }
+
+  .ticker{
+    margin-top:64px; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+    overflow:hidden; white-space:nowrap; padding:14px 0;
+  }
+  .ticker-track{ display:inline-flex; animation:scroll-left 32s linear infinite; }
+  .ticker-track span{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--paper-dim); padding:0 22px; display:inline-flex; align-items:center; gap:22px;
+  }
+  .ticker-track span::after{ content:'—'; color:var(--signal); }
+  @keyframes scroll-left{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ---------- Sections ---------- */
+  section{ padding:130px 0; border-bottom:1px solid var(--rule); position:relative; }
+  .slug{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:56px;
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);
+  }
+  .slug .edition{ color:var(--signal); }
+  .slug::after{ content:''; flex:1; height:1px; background:var(--rule-strong); }
+  h2.section-title{
+    font-family:var(--display); font-weight:800; font-size:clamp(34px, 6vw, 64px);
+    text-transform:uppercase; line-height:0.95; margin:0 0 40px; letter-spacing:-0.01em; color:var(--paper);
+  }
+
+  /* ---------- Sobre ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:60px; align-items:start; }
+  .about-lead{ font-size:clamp(20px, 2.4vw, 28px); font-weight:500; color:var(--paper); line-height:1.45; max-width:640px; }
+  .about-lead .hl{ color:var(--signal); }
+  .about-body{ margin-top:24px; color:var(--paper-dim); font-size:16px; max-width:620px; }
+  .fact-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--rule); }
+  .fact-list li{
+    display:flex; justify-content:space-between; gap:16px; padding:16px 0;
+    border-bottom:1px solid var(--rule); font-family:var(--mono); font-size:13px;
+  }
+  .fact-list li span:first-child{ color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+  .fact-list li span:last-child{ color:var(--paper); text-align:right; }
+
+  /* ---------- Trajetória ---------- */
+  .job{ display:grid; grid-template-columns:200px 1fr; gap:32px; padding:36px 0; border-top:1px solid var(--rule); }
+  .job:last-child{ border-bottom:1px solid var(--rule); }
+  .job-when{ font-family:var(--mono); font-size:13px; color:var(--muted); letter-spacing:.04em; }
+  .job-when b{ display:block; color:var(--wire); font-size:11px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px; }
+  .job-role{ font-family:var(--display); font-weight:700; font-size:26px; text-transform:uppercase; margin:0 0 6px; color:var(--paper); }
+  .job-role em{ font-style:normal; color:var(--signal); }
+  .job-desc{ color:var(--paper-dim); font-size:15.5px; max-width:640px; margin:0 0 14px; }
+  .job-tags{ display:flex; gap:8px; flex-wrap:wrap; }
+  .job-tags span{
+    font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--paper-dim); border:1px solid var(--rule-strong); padding:5px 10px; border-radius:2px;
+  }
+
+  /* ---------- Projetos ---------- */
+  .proj-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); }
+  .proj-card{
+    background:#000; padding:38px; display:flex; flex-direction:column; justify-content:space-between;
+    min-height:280px; transition:background .3s ease;
+  }
+  .proj-card:hover{ background:var(--ink-2); }
+  .proj-top{
+    display:flex; justify-content:space-between; align-items:flex-start; font-family:var(--mono);
+    font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.08em;
+  }
+  .proj-num{ color:var(--signal); font-size:13px; }
+  .proj-title{ font-family:var(--display); font-weight:700; font-size:30px; text-transform:uppercase; margin:22px 0 10px; line-height:1; color:var(--paper); }
+  .proj-desc{ color:var(--paper-dim); font-size:15px; max-width:440px; }
+  .proj-foot{ margin-top:24px; display:flex; gap:10px; flex-wrap:wrap; }
+  .proj-foot span{ font-family:var(--mono); font-size:11px; color:var(--wire); letter-spacing:.05em; text-transform:uppercase; }
+
+  /* ---------- Skills ---------- */
+  .skills-cols{ display:grid; grid-template-columns:repeat(3, 1fr); gap:40px; }
+  .skills-col h3{
+    font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--wire);
+    margin:0 0 18px; padding-bottom:12px; border-bottom:1px solid var(--rule-strong);
+  }
+  .skills-col ul{ list-style:none; margin:0; padding:0; }
+  .skills-col li{ font-size:15.5px; padding:9px 0; color:var(--paper-dim); border-bottom:1px solid var(--rule); }
+  .skills-col li:last-child{ border-bottom:none; }
+  .skills-col li b{ color:var(--paper); font-weight:600; }
+
+  /* ---------- Formação ---------- */
+  .edu-row{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; padding:22px 0; border-top:1px solid var(--rule); }
+  .edu-row:last-child{ border-bottom:1px solid var(--rule); }
+  .edu-name{ font-family:var(--display); font-size:24px; font-weight:700; text-transform:uppercase; color:var(--paper); }
+  .edu-inst{ font-family:var(--mono); font-size:13px; color:var(--muted); }
+
+  /* ---------- Contato ---------- */
+  .contact{ border-bottom:none; padding-bottom:80px; }
+  .contact-inner{ display:flex; flex-direction:column; align-items:flex-start; }
+  h2.contact-title{
+    font-family:var(--display); font-weight:900; font-size:clamp(38px, 8vw, 96px);
+    text-transform:uppercase; line-height:0.92; margin:0 0 28px; max-width:900px; color:var(--paper);
+  }
+  h2.contact-title .hl{ color:var(--signal); }
+  .contact-links{ display:flex; gap:16px; flex-wrap:wrap; margin-top:20px; }
+  .btn{
+    font-family:var(--mono); font-size:13px; text-transform:uppercase; letter-spacing:.08em;
+    text-decoration:none; padding:16px 26px; border:1px solid var(--paper); color:var(--paper);
+    display:inline-flex; align-items:center; gap:10px; border-radius:2px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .btn.primary{ background:var(--signal); border-color:var(--signal); color:#000; font-weight:600; }
+  .btn.primary:hover{ background:var(--paper); border-color:var(--paper); }
+  .btn:not(.primary):hover{ background:var(--paper); color:#000; }
+
+  footer{
+    padding:30px 0; display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:11.5px; color:var(--muted); letter-spacing:.05em; text-transform:uppercase;
+  }
+
+  @media (max-width:860px){
+    nav ul{
+      position:fixed; top:64px; left:0; right:0; background:#000; flex-direction:column; gap:0;
+      padding:8px 28px 20px; border-bottom:1px solid var(--rule); transform:translateY(-130%); transition:transform .3s ease;
+    }
+    nav ul.open{ transform:translateY(0); }
+    nav ul li{ width:100%; padding:14px 0; border-bottom:1px solid var(--rule); }
+    .menu-btn{ display:flex; }
+    .about-grid{ grid-template-columns:1fr; gap:36px; }
+    .job{ grid-template-columns:1fr; gap:10px; }
+    .proj-grid{ grid-template-columns:1fr; }
+    .skills-cols{ grid-template-columns:1fr; gap:28px; }
+    section{ padding:88px 0; }
+    footer{ flex-direction:column; gap:8px; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="logo">VG<span>.</span></a>
+    <ul id="navList">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#trajetoria">Trajetória</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow"><span class="live-dot"></span> São Paulo, SP — Disponível para novas oportunidades</div>
+    <h1 class="name">Victor<br>Gaspar</h1>
+    <p class="hero-role">Jornalista de formação, hoje construindo <strong>comunicação interna, corporativa e conteúdo</strong> que fazem marcas e pessoas se entenderem melhor.</p>
+    <div class="hero-meta">
+      <div>Base<b>São Paulo, SP</b></div>
+      <div>Foco<b>Comunicação Interna & Corporativa</b></div>
+      <div>Formação<b>Jornalismo</b></div>
+    </div>
+  </div>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Comunicação Interna</span><span>Employer Branding</span><span>Cultura Organizacional</span><span>Conteúdo</span><span>Storytelling Corporativo</span><span>Relações com Imprensa</span><span>Redes Sociais</span>
+      <span>Comunicação Interna</span><span>Employer Branding</span><span>Cultura Organizacional</span><span>Conteúdo</span><span>Storytelling Corporativo</span><span>Relações com Imprensa</span><span>Redes Sociais</span>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="slug"><span class="edition">Ed. 01</span><span>Perfil</span></div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-lead">Comunicação é o fio que liga <span class="hl">redação</span>, <span class="hl">marca</span> e <span class="hl">cultura interna</span> — e é nesse cruzamento que Victor constrói carreira.</p>
+        <p class="about-body">Formado em Jornalismo pela Universidade Anhembi Morumbi, ele passou por redações, redes sociais, assessoria de imprensa e marketing antes de mirar de vez em Comunicação Interna e Corporativa. No caminho, aprendeu que uma boa comunicação interna se escreve como uma boa reportagem: apurando o que realmente importa para quem vai ler, e cortando o resto.</p>
+        <p class="about-body">Hoje atua em marketing, mas o próximo capítulo é claro: levar essa bagagem de jornalismo e conteúdo para dentro das empresas, ajudando marcas a se comunicarem melhor com quem trabalha nelas.</p>
+      </div>
+      <ul class="fact-list reveal reveal-delay-1">
+        <li><span>Base</span><span>São Paulo, SP</span></li>
+        <li><span>Formação</span><span>Jornalismo</span></li>
+        <li><span>Atuação atual</span><span>Marketing</span></li>
+        <li><span>Buscando</span><span>Comunicação Interna / Corporativa</span></li>
+        <li><span>Também produz</span><span>Conteúdo para Reels</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="trajetoria">
+  <div class="wrap">
+    <div class="slug"><span class="edition">Ed. 02</span><span>Trajetória</span></div>
+    <h2 class="section-title reveal">Onde já<br>passei</h2>
+
+    <div class="job reveal">
+      <div class="job-when"><b>Atual</b>São Paulo, SP</div>
+      <div>
+        <h3 class="job-role">Cumbuca Boa <em>— Marketing</em></h3>
+        <p class="job-desc">Apoio à estratégia de marketing de uma marca de alimentação saudável, incluindo pesquisa e mapeamento de parcerias com micro-influenciadores no nicho de nutrição, e produção de conteúdo para redes sociais da marca.</p>
+        <div class="job-tags"><span>Marketing</span><span>Influencer Marketing</span><span>Conteúdo</span></div>
+      </div>
+    </div>
+
+    <div class="job reveal reveal-delay-1">
+      <div class="job-when"><b>06/2025 — 12/2025</b>São Paulo, SP</div>
+      <div>
+        <h3 class="job-role">Onze <em>— Comunicação Interna</em></h3>
+        <p class="job-desc">Estágio em Comunicação Interna, apoiando a construção de narrativas e materiais voltados ao público interno, alinhados à estratégia e à cultura da empresa.</p>
+        <div class="job-tags"><span>Comunicação Interna</span><span>Conteúdo</span></div>
+      </div>
+    </div>
+
+    <div class="job reveal reveal-delay-2">
+      <div class="job-when"><b>04/2024 — 01/2025</b>São Paulo, SP</div>
+      <div>
+        <h3 class="job-role">Suzano <em>— Comunicação Externa</em></h3>
+        <p class="job-desc">Estágio em Comunicação Externa em ambiente corporativo de grande porte, com contato direto com processos de comunicação corporativa em escala.</p>
+        <div class="job-tags"><span>Comunicação Externa</span><span>Comunicação Corporativa</span></div>
+      </div>
+    </div>
+
+    <div class="job reveal reveal-delay-3">
+      <div class="job-when"><b>07/2022 — 04/2024</b>São Paulo, SP</div>
+      <div>
+        <h3 class="job-role">AlmapBBDO <em>— Pesquisa e Conteúdo</em></h3>
+        <p class="job-desc">Estágio em Pesquisa e Conteúdo no Projeto Antenas, com foco em identificar e mapear tendências de comportamento e cultura para orientar a produção de conteúdo e estratégias criativas da agência.</p>
+        <div class="job-tags"><span>Pesquisa</span><span>Conteúdo</span><span>Tendências</span></div>
+      </div>
+    </div>
+
+    <div class="job reveal reveal-delay-3">
+      <div class="job-when"><b>01/2022 — 07/2022</b>São Paulo, SP</div>
+      <div>
+        <h3 class="job-role">Elife <em>— Social CRM</em></h3>
+        <p class="job-desc">Estágio em Social CRM, atuando no relacionamento com consumidores de marcas nas redes sociais e no atendimento a interações digitais.</p>
+        <div class="job-tags"><span>Social CRM</span><span>Redes Sociais</span><span>Atendimento</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <div class="slug"><span class="edition">Ed. 03</span><span>Projetos & Conteúdo</span></div>
+    <h2 class="section-title reveal">O que já<br>coloquei no ar</h2>
+
+    <div class="proj-grid reveal">
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-num">01</span><span>Officina 37</span></div>
+        <div>
+          <h3 class="proj-title">Reels de evento</h3>
+          <p class="proj-desc">Criação de roteiro, ganchos e cobertura em vídeo para eventos da Officina 37, incluindo a cobertura de uma oficina mecânica voltada para mulheres — do gancho de abertura ao corte final.</p>
+        </div>
+        <div class="proj-foot"><span>Roteiro</span><span>Instagram Reels</span><span>Cobertura de evento</span></div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-top"><span class="proj-num">02</span><span>Conteúdo esportivo</span></div>
+        <div>
+          <h3 class="proj-title">Corrida pelo título</h3>
+          <p class="proj-desc">Roteiro e capa de Reel sobre a disputa pelo título da Premier League entre Arsenal e Manchester City, cruzando dados de probabilidade da Opta com uma narrativa acessível para redes sociais.</p>
+        </div>
+        <div class="proj-foot"><span>Roteiro</span><span>Dados esportivos</span><span>Design de capa</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="slug"><span class="edition">Ed. 04</span><span>Competências</span></div>
+    <h2 class="section-title reveal">Ferramentas<br>de trabalho</h2>
+    <div class="skills-cols">
+      <div class="skills-col reveal">
+        <h3>Comunicação</h3>
+        <ul>
+          <li><b>Comunicação Interna</b> — planejamento e execução</li>
+          <li><b>Comunicação Corporativa</b></li>
+          <li><b>Employer Branding</b></li>
+          <li><b>Cultura Organizacional</b></li>
+          <li><b>Relações com a Imprensa</b></li>
+        </ul>
+      </div>
+      <div class="skills-col reveal reveal-delay-1">
+        <h3>Conteúdo</h3>
+        <ul>
+          <li><b>Roteirização</b> para Reels e vídeo curto</li>
+          <li><b>Redação</b> e copywriting</li>
+          <li><b>Redes sociais</b></li>
+          <li><b>Storytelling</b> de marca</li>
+        </ul>
+      </div>
+      <div class="skills-col reveal reveal-delay-2">
+        <h3>Marketing</h3>
+        <ul>
+          <li><b>Influencer Marketing</b></li>
+          <li><b>Pesquisa e curadoria</b> de parcerias</li>
+          <li><b>Atendimento</b> e escalação de time</li>
+          <li><b>Análise de dados</b> aplicada a conteúdo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formacao">
+  <div class="wrap">
+    <div class="slug"><span class="edition">Ed. 05</span><span>Formação</span></div>
+    <div class="edu-row reveal">
+      <div class="edu-name">Jornalismo</div>
+      <div class="edu-inst">Universidade Anhembi Morumbi — São Paulo, SP</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap contact-inner">
+    <div class="slug"><span class="edition">Ed. 06</span><span>Contato</span></div>
+    <h2 class="contact-title reveal">Vamos conversar sobre <span class="hl">comunicação</span>?</h2>
+    <p class="about-body reveal reveal-delay-1" style="max-width:520px;">Aberto a oportunidades de Comunicação Interna, Corporativa e Conteúdo em São Paulo, presenciais ou híbridas.</p>
+    <div class="contact-links reveal reveal-delay-2">
+      <a class="btn primary" href="mailto:victorgasparps@gmail.com">E-mail</a>
+      <a class="btn" href="https://www.linkedin.com/in/victor-gaspar2002/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:8px;">
+    <span>Victor Gaspar — São Paulo, 2026</span>
+    <span>Comunicação Interna / Corporativa / Conteúdo</span>
+  </div>
+</footer>
+
+<script>
+  document.body.classList.add('js');
+
+  var menuBtn = document.getElementById('menuBtn');
+  var navList = document.getElementById('navList');
+  menuBtn.addEventListener('click', function(){
+    var open = navList.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  Array.prototype.forEach.call(navList.querySelectorAll('a'), function(a){
+    a.addEventListener('click', function(){
+      navList.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
